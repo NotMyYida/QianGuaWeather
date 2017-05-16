@@ -9,7 +9,7 @@
     <color name="colorDeepPurpleRea3">#521a49</color>
 
     <color name="colorPinkDeep">#f4614f</color>
-    <color name="colorPinkLight">#55fc7b68</color>
+    <color name="colorPinkLight">#fc7b68</color>
 
     <color name="colorBlueGreenDeep">#6abca6</color>
     <color name="colorBlueGreenLight">#83d0c0</color>
@@ -19,5 +19,9 @@
 
     <color name="colorBlueDeep">#318ca1</color>
     <color name="colorBlueLight">#49accc</color>
+
+    <color name="colorYellowDeep">#c88e3c</color>
+    <color name="colorYellowLight">#e19f41</color>
+
 
 </resources>

@@ -7,7 +7,7 @@ package com.mycj.weather.bean;
 public class Weather {
 
     private String info;
-    private int temperature;
+    private String temperature;
     private String city;
     private String wind;
     private String visible;
@@ -15,7 +15,7 @@ public class Weather {
 
     public Weather(){}
 
-    public Weather(int temperature, String city, String wind, String visible, String time) {
+    public Weather(String temperature, String city, String wind, String visible, String time) {
         this.temperature = temperature;
         this.city = city;
         this.wind = wind;
@@ -23,7 +23,7 @@ public class Weather {
         this.time = time;
     }
 
-    public Weather(String info, int temperature, String city, String wind, String visible, String time) {
+    public Weather(String info, String temperature, String city, String wind, String visible, String time) {
         this.info = info;
         this.temperature = temperature;
         this.city = city;
@@ -40,11 +40,11 @@ public class Weather {
         this.info = info;
     }
 
-    public int getTemperature() {
+    public String getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(String temperature) {
         this.temperature = temperature;
     }
 
@@ -78,5 +78,17 @@ public class Weather {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Weather{" +
+                "info='" + info + '\'' +
+                ", temperature='" + temperature + '\'' +
+                ", city='" + city + '\'' +
+                ", wind='" + wind + '\'' +
+                ", visible='" + visible + '\'' +
+                ", time='" + time + '\'' +
+                '}';
     }
 }

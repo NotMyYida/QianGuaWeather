@@ -6,22 +6,26 @@
     android:clickable="true"
     >
 
-    <ImageView
-        android:id="@+id/iv_weather"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher"
-        android:background="@color/colorPinkDeep"
-        />
+    <LinearLayout
+        android:layout_width="130dp"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/iv_weather"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher"
+            android:background="@color/colorPinkDeep"
+            />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="2"
+        android:layout_weight="3"
         android:layout_height="match_parent"
-        android:background="#ddfc7b68"
+        android:background="#fc6b68"
         android:orientation="vertical"
         android:padding="12dp"
+        android:id="@+id/ll_right"
         >
 
         <RelativeLayout

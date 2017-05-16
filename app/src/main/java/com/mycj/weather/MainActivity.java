@@ -1,17 +1,13 @@
 package com.mycj.weather;
 
-import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.mycj.weather.bean.NowWeather;
-import com.mycj.weather.bean.WeatherData;
+import com.mycj.weather.service.NowWeather;
 import com.mycj.weather.config.Config;
 import com.mycj.weather.service.WeatherService;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 

@@ -1,0 +1,267 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
+
+
+    <!-- @android:color/darker_gray    #0000FF         android:src="@drawable/znjjm"   -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00BFFF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@android:color/black"
+            android:textSize="30dip" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/ip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.00"
+                android:hint="IP:" >
+
+                <requestFocus />
+            </EditText>
+
+            <!--
+                 <EditText
+                android:id="@+id/port"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:ems="10"
+                android:hint="Port:" />
+            -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <!--   <EditText
+                  android:id="@+id/ip"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1.0"
+                  android:hint="IP:" >
+
+                  <requestFocus />
+              </EditText> -->
+
+            <EditText
+                android:id="@+id/port"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Port:" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dp"
+                android:onClick="openButton"
+                android:text="打开" />
+
+            <Button
+                android:id="@+id/close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dp"
+                android:text="关闭" />
+
+            <Button
+                android:id="@+id/reconn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dp"
+                android:text="重连" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5.0dp"  >
+
+            <ToggleButton
+                android:id="@+id/btn_led1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="全部关"
+                android:textOn="全部开" />
+
+            <ToggleButton
+                android:id="@+id/btn_led2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="照明灯关"
+                android:textOn="照明灯开" />
+
+            <ToggleButton
+                android:id="@+id/btn_led3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="窗帘关"
+                android:textOn="窗帘开" />
+            <ToggleButton
+                android:id="@+id/btn_kongtiao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="空调关"
+                android:textOn="空调开" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5.0dp"
+            >
+
+            <Button
+                android:id="@+id/btn_all"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:onClick="openDegree"
+                android:text="环境"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                />
+
+            <Button
+                android:id="@+id/btn_led4"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:onClick="openActivity"
+                android:text="RGB控制"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                />
+            <ToggleButton
+                android:id="@+id/btn_baojing"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="报警关"
+                android:textOn="报警开" />
+            <ToggleButton
+                android:id="@+id/btn_bingxiang"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textOff="冰箱关"
+                android:textOn="冰箱开" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5.0dp"
+            >
+
+            <Button
+                android:id="@+id/btn_doorcontrol"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="门禁"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                />
+
+            <Button
+                android:id="@+id/btn_jiankong"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="监控"
+                android:layout_weight="1"
+                />
+            <Button
+                android:id="@+id/btn_print"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="打印"
+                android:layout_weight="1"
+                android:onClick="openPrint"
+                />
+            <Button
+                android:id="@+id/btn_setup"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="设置"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5.0dp" >
+
+            <EditText
+                android:id="@+id/recContent"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1.0"
+                android:hint="接收到的数据"
+                android:lines="2" />
+
+            <Button
+                android:id="@+id/clear"
+                android:layout_width="100.0dp"
+                android:layout_height="60dp"
+                android:text="清空" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="信盈达"
+            android:textColor="@android:color/black"
+            android:textSize="30dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="技能改变中国、实训改变命运！"
+            android:textColor="@android:color/black"
+            android:textSize="20dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="http://www.edu118.com"
+            android:textColor="@android:color/black"
+            android:textSize="20dip" />
+    </LinearLayout>
+
+</LinearLayout>

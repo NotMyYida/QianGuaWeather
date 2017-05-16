@@ -1,4 +1,4 @@
-package com.mycj.weather.bean;
+package com.mycj.weather.service;
 
 import java.util.List;
 

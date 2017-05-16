@@ -10,4 +10,6 @@ public class Config {
     public final static String base_url = "https://free-api.heweather.com/v5/";
     public final static String alldata = "weather";
 
+    public final static String city_list_url = "https://cdn.heweather.com/china-city-list.json";
+    public final static String APP_NAME = "weather";
 }
