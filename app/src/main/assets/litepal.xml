@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
    <litepal>
-    <dbname value="Weather"></dbname>
-    <version value="1"></version>
+    <dbname value="Weather"> </dbname>
+    <version value="2"> </version>
     <list>
-    <mapping class="cct.login.Person"></mapping>
+    <mapping class="com.mycj.weather.service.ChinaCity"> </mapping>
+     <mapping class="com.mycj.weather.bean.FavorCity"> </mapping>
     </list>
 </litepal>

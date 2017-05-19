@@ -1,10 +1,14 @@
 package com.mycj.weather.service;
 
+import com.google.gson.annotations.SerializedName;
+
+import org.litepal.crud.DataSupport;
+
 /**
  * Created by Hqs on 2017/5/16.
  * Company : MYCJ
  */
-public class ChinaCity {
+public class ChinaCity extends DataSupport{
 
     /**
      * id : CN101010100
@@ -20,8 +24,9 @@ public class ChinaCity {
      * lat : 39.904989
      * lon : 116.405285
      */
+    @SerializedName("id")
+    private String cityid;
 
-    private String id;
     private String cityEn;
     private String cityZh;
     private String countryCode;
@@ -38,7 +43,7 @@ public class ChinaCity {
     @Override
     public String toString() {
         return "ChinaCity{" +
-                "id='" + id + '\'' +
+                "cityid='" + cityid + '\'' +
                 ", cityEn='" + cityEn + '\'' +
                 ", cityZh='" + cityZh + '\'' +
                 ", countryCode='" + countryCode + '\'' +
@@ -54,11 +59,11 @@ public class ChinaCity {
     }
 
     public String getId() {
-        return id;
+        return cityid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String cityid) {
+        this.cityid = cityid;
     }
 
     public String getCityEn() {

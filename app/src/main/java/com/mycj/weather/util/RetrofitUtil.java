@@ -2,6 +2,7 @@ package com.mycj.weather.util;
 
 import android.util.Log;
 
+import com.mycj.weather.citylist.OnLoadCityListener;
 import com.mycj.weather.config.Config;
 import com.mycj.weather.service.ChinaCity;
 import com.mycj.weather.service.NowWeather;
@@ -26,6 +27,7 @@ public class RetrofitUtil {
     private static RetrofitUtil retrofitUtil;
     private final Retrofit retrofit;
     OnNowWeatherListener mOnNowWeatherListener;
+    OnLoadCityListener mOnLoadCityListener;
     private final WeatherService weatherService;
 
     private RetrofitUtil(){
@@ -70,13 +72,14 @@ public class RetrofitUtil {
         allChinaCity.enqueue(new Callback<ChinaCity[]>() {
             @Override
             public void onResponse(Call<ChinaCity[]> call, Response<ChinaCity[]> response) {
-                Log.e(tag,"length:"+response.body().length);
-
+                L.e(RetrofitUtil.class,"length:"+response.body().length+" [1]:"+response.body()[1].toString());
+                mOnLoadCityListener.onSuccess(response.body());
             }
 
             @Override
             public void onFailure(Call<ChinaCity[]> call, Throwable t) {
                 Log.e(tag,t.toString());
+                mOnLoadCityListener.onFail(t.getMessage());
             }
         });
     }
@@ -84,6 +87,10 @@ public class RetrofitUtil {
 
     public void setOnNowWeatherListener(OnNowWeatherListener onNowWeatherListener){
         this.mOnNowWeatherListener = onNowWeatherListener;
+    }
+
+    public void setOnLoadCityListener(OnLoadCityListener onLoadCityListener){
+        this.mOnLoadCityListener = onLoadCityListener;
     }
 
 
