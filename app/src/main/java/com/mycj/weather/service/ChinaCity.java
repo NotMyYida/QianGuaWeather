@@ -153,4 +153,12 @@ public class ChinaCity extends DataSupport{
     public void setLon(String lon) {
         this.lon = lon;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if( obj instanceof ChinaCity){
+            return cityZh.equals(((ChinaCity) obj).cityZh);
+        }
+        return false;
+    }
 }

@@ -18,12 +18,10 @@ import java.util.List;
  */
 public class GroupItemAdapter extends BaseAdapter {
 
-    private Context mContext;
     private List<GroupItem> mItems;
     private final LayoutInflater inflater;
 
     public GroupItemAdapter(Context mContext, List<GroupItem> mItems) {
-        this.mContext = mContext;
         this.mItems = mItems;
         inflater = LayoutInflater.from(mContext);
     }
@@ -53,13 +51,14 @@ public class GroupItemAdapter extends BaseAdapter {
             viewHolder.tvTitle = (TextView) convertView.findViewById(R.id.tv_title);
             viewHolder.tvContent = (TextView) convertView.findViewById(R.id.tv_content);
             convertView.setTag(viewHolder);
+        }else{
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
+        viewHolder.tvTitle.setText(getItem(position).getmTitle());
+        viewHolder.tvContent.setText(getItem(position).getmContent());
 
-
-
-
-        return null;
+        return convertView;
     }
 
 

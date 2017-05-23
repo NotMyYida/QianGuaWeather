@@ -39,7 +39,7 @@ public class ListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_weather_list);
 
         recyclerView_weather = (RecyclerView) findViewById(R.id.recyclerView_weather_list);
 
@@ -106,7 +106,6 @@ public class ListActivity extends AppCompatActivity {
             return;
         }
 
-
         NowWeather.HeWeather5Bean heWeather5Bean = heWeather5.get(0);
         NowWeather.HeWeather5Bean.BasicBean basic = heWeather5Bean.getBasic();
         NowWeather.HeWeather5Bean.BasicBean.UpdateBean update = basic.getUpdate();
@@ -137,7 +136,6 @@ public class ListActivity extends AppCompatActivity {
             }else{
                 finish();
             }
-
             return true;
         }
 
