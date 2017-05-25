@@ -9,14 +9,22 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.mycj.weather.R;
+import com.mycj.weather.bean.FavorCity;
 import com.mycj.weather.fragment.KeyWordSearchFragment;
 import com.mycj.weather.fragment.ProvinceFragment;
 import com.mycj.weather.util.L;
 import com.mycj.weather.util.LitePalUtil;
+
+import org.litepal.crud.DataSupport;
+
+import java.util.List;
 
 /**
  * Created by Hqs on 2017/5/17.
@@ -38,10 +46,7 @@ public class CitiesListActivity extends AppCompatActivity {
                     keyWordSearchFragment.flushListItem();
                 }
             }else if(msg.what == ProvinceFragment.MSG_LOAD_PROVINCE_SUCCESS){
-                String[] provinces = (String[]) msg.obj;
-                for(String province : provinces){
-                    L.e("provinces count:"+provinces.length+ "  " +province);
-                }
+
             }
         }
     };
@@ -54,6 +59,7 @@ public class CitiesListActivity extends AppCompatActivity {
         findView();
         initFragment();
         setListener();
+        replaceFragment(provinceFragment);
     }
 
 
@@ -61,6 +67,17 @@ public class CitiesListActivity extends AppCompatActivity {
         rgSearchWay = (RadioGroup) findViewById(R.id.rg_search_way);
         rbProvince = (RadioButton) findViewById(R.id.rb_province);
         rbKeyWord = (RadioButton) findViewById(R.id.rb_keyword);
+        Button btnTest = (Button) findViewById(R.id.btn_test_for_delete_favor);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<FavorCity> allFavorCities = LitePalUtil.findAllFavorCities();
+                Toast.makeText(CitiesListActivity.this,"删除 "+allFavorCities,Toast.LENGTH_SHORT).show();
+                List<FavorCity> allFavorCities2 = LitePalUtil.findAllFavorCities();
+                DataSupport.deleteAll(FavorCity.class);
+                Toast.makeText(CitiesListActivity.this,"删除 "+allFavorCities2.size(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void setListener() {
@@ -75,20 +92,12 @@ public class CitiesListActivity extends AppCompatActivity {
                 }else if(checkedId == R.id.rb_province){
                     rbProvince.setTextColor(Color.parseColor("#ffffff"));
                     rbKeyWord.setTextColor(Color.parseColor("#000000"));
-
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            String[] provinces = LitePalUtil.getProvince();
-                            Message message = mHandler.obtainMessage(ProvinceFragment.MSG_LOAD_PROVINCE_SUCCESS, provinces);
-                            mHandler.sendMessage(message);
-                        }
-                    }).start();
-
+                    replaceFragment(provinceFragment);
+//
                 }
             }
         });
-        rgSearchWay.check(R.id.rb_province);
+        rbProvince.setChecked(true);
     }
 
     private void initFragment() {

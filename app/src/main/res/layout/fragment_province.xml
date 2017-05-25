@@ -5,4 +5,15 @@
     android:fitsSystemWindows="true"
     >
 
+
+    <Button
+        android:id="@+id/btn_certain"
+        android:text="选择城市"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        />
+
+
 </LinearLayout>

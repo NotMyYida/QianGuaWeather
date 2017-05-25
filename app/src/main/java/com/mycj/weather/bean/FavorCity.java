@@ -10,7 +10,13 @@ import org.litepal.crud.DataSupport;
 public class FavorCity extends DataSupport {
     private String cityName;
     private String cityCode;
-    private String province;
+    private String leadCity;
+
+    public FavorCity(String cityName, String cityCode, String leadCity) {
+        this.cityName = cityName;
+        this.cityCode = cityCode;
+        this.leadCity = leadCity;
+    }
 
     public FavorCity(){}
 
@@ -30,11 +36,20 @@ public class FavorCity extends DataSupport {
         this.cityCode = cityCode;
     }
 
-    public String getProvince() {
-        return province;
+    public String getLeadCity() {
+        return leadCity;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public void setLeadCity(String leadCity) {
+        this.leadCity = leadCity;
+    }
+
+    @Override
+    public String toString() {
+        return "FavorCity{" +
+                "cityName='" + cityName + '\'' +
+                ", cityCode='" + cityCode + '\'' +
+                ", leadCity='" + leadCity + '\'' +
+                '}';
     }
 }

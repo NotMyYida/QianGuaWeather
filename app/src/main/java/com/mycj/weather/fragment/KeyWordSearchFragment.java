@@ -1,6 +1,7 @@
 package com.mycj.weather.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,6 +19,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.mycj.weather.R;
+import com.mycj.weather.activity.ListActivity;
+import com.mycj.weather.bean.FavorCity;
 import com.mycj.weather.citylist.GroupItem;
 import com.mycj.weather.citylist.GroupItemAdapter;
 import com.mycj.weather.service.ChinaCity;
@@ -62,9 +65,27 @@ public class KeyWordSearchFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         lvSearchList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //TODO
+                GroupItem groupItem = groupItemList.get(position);
+                List<FavorCity> favorCities = LitePalUtil.getFavorCityByCityNameAndLeadCity(groupItem.getmTitle(), groupItem.getmContent());
+                if(favorCities.size() > 0){
+                    Toast.makeText(getActivity(),"已经收藏过这个城市了",Toast.LENGTH_SHORT).show();
+                }else{
+                    String cityId = LitePalUtil.getCityCodeByCityAndLeadCity(groupItem.getmTitle(), groupItem.getmContent());
+                    FavorCity favorCity = new FavorCity(groupItem.getmTitle(),cityId,groupItem.getmContent());
+                    boolean save = favorCity.save();
+                    if(save){
+                        Toast.makeText(getActivity(),"收藏成功",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), ListActivity.class);
+                        intent.putExtra("city",cityId);
+                        startActivity(intent);
+                    }
+                    else
+                        Toast.makeText(getActivity(),"收藏失败 可以联系开发者：QQ 330589703",Toast.LENGTH_SHORT).show();
+
+                }
 
             }
         });

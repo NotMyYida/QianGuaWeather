@@ -29,4 +29,5 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.0'
     compile 'com.android.support:design:25.3.0'
     compile 'org.litepal.android:core:1.3.2'
+    compile 'liji.library.dev:citypickerview:1.0.0'
 }
